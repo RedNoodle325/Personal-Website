@@ -9,6 +9,14 @@ export interface Project {
 
 export const projects: Project[] = [
   {
+    title: 'Worky McStreamline',
+    description:
+      'A field service and commissioning management app for tracking HVAC/cooling system installations, service tickets, technician scheduling, and customer contact logging.',
+    tech: ['Next.js', 'TypeScript', 'PostgreSQL', 'Supabase', 'JWT'],
+    githubUrl: 'https://github.com/RedNoodle325/worky_mcstreamline',
+    featured: true,
+  },
+  {
     title: 'Project One',
     description:
       'A short description of what this project does and the problem it solves. Replace this with your own project.',
