@@ -16,7 +16,6 @@ export const projects: Project[] = [
     tech: ['Next.js', 'TypeScript', 'PostgreSQL', 'Supabase', 'JWT'],
     githubUrl: 'https://github.com/RedNoodle325/worky_mcstreamline',
     liveUrl: 'https://worky.hackazak.com',
-    screenshotUrl: '/projects/worky-mcstreamline.png',
     featured: true,
   },
 ];
