@@ -18,20 +18,16 @@ This project uses [Cloudflare Workers Static Assets](https://developers.cloudfla
 ### Prerequisites
 
 1. A [Cloudflare account](https://dash.cloudflare.com/sign-up) (free tier works)
-2. Wrangler CLI installed:
+2. Log in to Cloudflare:
    ```sh
-   bun add -g wrangler
-   ```
-3. Log in to Cloudflare:
-   ```sh
-   wrangler login
+   bunx wrangler login
    ```
 
 ### First Deploy
 
 ```sh
 bun build
-wrangler deploy
+bunx wrangler deploy
 ```
 
 Wrangler will upload the `./dist/` directory as static assets and give you a `*.workers.dev` URL.
@@ -42,7 +38,7 @@ Same two commands:
 
 ```sh
 bun build
-wrangler deploy
+bunx wrangler deploy
 ```
 
 ### Custom Domain
