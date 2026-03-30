@@ -5,10 +5,10 @@ An Astro static site with Tailwind CSS, deployable to Cloudflare Workers.
 ## Local Development
 
 ```sh
-bun install       # Install dependencies
-bun dev           # Start dev server at localhost:4321
-bun build         # Build production site to ./dist/
-bun preview       # Preview the build locally
+bun install           # Install dependencies
+bun run dev           # Start dev server at localhost:4321
+bun run build         # Build production site to ./dist/
+bun run preview       # Preview the build locally
 ```
 
 ## Deploying to Cloudflare Workers
@@ -26,7 +26,7 @@ This project uses [Cloudflare Workers Static Assets](https://developers.cloudfla
 ### First Deploy
 
 ```sh
-bun build
+bun run build
 bunx wrangler deploy
 ```
 
@@ -37,7 +37,7 @@ Wrangler will upload the `./dist/` directory as static assets and give you a `*.
 Same two commands:
 
 ```sh
-bun build
+bun run build
 bunx wrangler deploy
 ```
 
