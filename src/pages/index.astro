@@ -1,0 +1,23 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import Nav from '../components/Nav.astro';
+import Hero from '../components/Hero.astro';
+import Projects from '../components/Projects.astro';
+import Resume from '../components/Resume.astro';
+import Contact from '../components/Contact.astro';
+import Footer from '../components/Footer.astro';
+---
+
+<BaseLayout
+  title="Zakk Linedinst | Project Manager"
+  description="Project Manager at Munters Data Center Technologies. Personal portfolio and project showcase."
+>
+  <Nav />
+  <main>
+    <Hero />
+    <Projects />
+    <Resume />
+    <Contact />
+  </main>
+  <Footer />
+</BaseLayout>

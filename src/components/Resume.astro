@@ -1,0 +1,36 @@
+---
+---
+
+<section id="resume" class="py-24 px-6 bg-surface-card/30">
+  <div class="max-w-3xl mx-auto text-center">
+    <p class="font-mono text-accent text-sm tracking-widest uppercase mb-2">Background</p>
+    <h2 class="text-3xl sm:text-4xl font-bold text-slate-100 mb-6">Resume</h2>
+
+    <p class="text-slate-400 text-lg leading-relaxed mb-10">
+      I bring a track record of delivering large-scale data center projects on time and within
+      scope. My background spans project planning, stakeholder management, and cross-functional
+      coordination in technically demanding environments.
+    </p>
+
+    <!-- Highlight chips -->
+    <div class="flex flex-wrap justify-center gap-3 mb-12">
+      {['Project Management', 'Data Center Infrastructure', 'Cross-functional Teams', 'Stakeholder Communication', 'Risk Management'].map((skill) => (
+        <span class="font-mono text-sm border border-surface-border text-slate-300 px-4 py-2 rounded-full">
+          {skill}
+        </span>
+      ))}
+    </div>
+
+    <a
+      href="/resume.pdf"
+      download
+      class="inline-flex items-center gap-2 bg-accent text-slate-900 font-semibold px-8 py-4 rounded-lg hover:bg-accent-glow transition-colors duration-200 text-lg"
+    >
+      <!-- Download icon -->
+      <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor" aria-hidden="true">
+        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-4l-4 4m0 0l-4-4m4 4V4" />
+      </svg>
+      Download Resume
+    </a>
+  </div>
+</section>
