@@ -1,43 +1,68 @@
-# Astro Starter Kit: Minimal
+# Personal Website
+
+An Astro static site with Tailwind CSS, deployable to Cloudflare Workers.
+
+## Local Development
 
 ```sh
-bun create astro@latest -- --template minimal
+bun install       # Install dependencies
+bun dev           # Start dev server at localhost:4321
+bun build         # Build production site to ./dist/
+bun preview       # Preview the build locally
 ```
 
-> 🧑‍🚀 **Seasoned astronaut?** Delete this file. Have fun!
+## Deploying to Cloudflare Workers
 
-## 🚀 Project Structure
+This project uses [Cloudflare Workers Static Assets](https://developers.cloudflare.com/workers/static-assets/) via `wrangler.jsonc`.
 
-Inside of your Astro project, you'll see the following folders and files:
+### Prerequisites
 
-```text
-/
-├── public/
-├── src/
-│   └── pages/
-│       └── index.astro
-└── package.json
+1. A [Cloudflare account](https://dash.cloudflare.com/sign-up) (free tier works)
+2. Wrangler CLI installed:
+   ```sh
+   bun add -g wrangler
+   ```
+3. Log in to Cloudflare:
+   ```sh
+   wrangler login
+   ```
+
+### First Deploy
+
+```sh
+bun build
+wrangler deploy
 ```
 
-Astro looks for `.astro` or `.md` files in the `src/pages/` directory. Each page is exposed as a route based on its file name.
+Wrangler will upload the `./dist/` directory as static assets and give you a `*.workers.dev` URL.
 
-There's nothing special about `src/components/`, but that's where we like to put any Astro/React/Vue/Svelte/Preact components.
+### Subsequent Deploys
 
-Any static assets, like images, can be placed in the `public/` directory.
+Same two commands:
 
-## 🧞 Commands
+```sh
+bun build
+wrangler deploy
+```
 
-All commands are run from the root of the project, from a terminal:
+### Custom Domain
 
-| Command                   | Action                                           |
-| :------------------------ | :----------------------------------------------- |
-| `bun install`             | Installs dependencies                            |
-| `bun dev`             | Starts local dev server at `localhost:4321`      |
-| `bun build`           | Build your production site to `./dist/`          |
-| `bun preview`         | Preview your build locally, before deploying     |
-| `bun astro ...`       | Run CLI commands like `astro add`, `astro check` |
-| `bun astro -- --help` | Get help using the Astro CLI                     |
+1. Go to **Cloudflare Dashboard > Workers & Pages > your worker > Settings > Domains & Routes**
+2. Click **Add Custom Domain** and enter your domain
+3. Your domain must be on Cloudflare DNS (either registered through Cloudflare or with nameservers pointed to Cloudflare)
 
-## 👀 Want to learn more?
+### Configuration
 
-Feel free to check [our documentation](https://docs.astro.build) or jump into our [Discord server](https://astro.build/chat).
+The `wrangler.jsonc` file controls the deployment:
+
+```jsonc
+{
+  "name": "hackazak",          // Worker name — change this to your preferred name
+  "compatibility_date": "2026-03-30",
+  "assets": {
+    "directory": "./dist"      // Built output served as static files
+  }
+}
+```
+
+Change `"name"` to rename your Worker (this affects the `*.workers.dev` subdomain).
