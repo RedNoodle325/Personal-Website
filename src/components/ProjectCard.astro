@@ -8,7 +8,19 @@ interface Props {
 const { project } = Astro.props;
 ---
 
-<article class="group flex flex-col bg-surface-card border border-surface-border rounded-xl p-6 hover:border-accent/50 transition-all duration-300 hover:-translate-y-1">
+<article class="group flex flex-col bg-surface-card border border-surface-border rounded-xl overflow-hidden hover:border-accent/50 transition-all duration-300 hover:-translate-y-1">
+  <!-- Screenshot -->
+  {project.screenshotUrl && (
+    <a href={project.liveUrl ?? project.screenshotUrl} target="_blank" rel="noopener noreferrer" class="block overflow-hidden">
+      <img
+        src={project.screenshotUrl}
+        alt={`${project.title} screenshot`}
+        class="w-full object-cover object-top h-48 transition-transform duration-300 group-hover:scale-105"
+      />
+    </a>
+  )}
+
+  <div class="flex flex-col flex-1 p-6">
   <!-- Title -->
   <h3 class="text-lg font-semibold text-slate-100 mb-2 group-hover:text-accent transition-colors duration-200">
     {project.title}
@@ -60,5 +72,6 @@ const { project } = Astro.props;
         Live
       </a>
     )}
+  </div>
   </div>
 </article>
